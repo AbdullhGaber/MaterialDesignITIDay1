@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_200"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/btn_menu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_menu_hamburger"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black_100" />
+
+    <ImageView
+        android:id="@+id/btn_search"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black_100" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:drawableStart="@drawable/ic_location"
+        android:drawableEnd="@drawable/outline_arrow_drop_down_24"
+        android:drawablePadding="8dp"
+        android:text="Work Place"
+        android:textColor="@color/black_100"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_menu" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Choose your preferred meal"
+        android:textColor="@color/hint"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_location" />
+
+    <ImageView
+        android:id="@+id/cat_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_category_active"
+        android:padding="12dp"
+        android:src="@drawable/home"
+        app:layout_constraintEnd_toStartOf="@id/cat_fav"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+        app:tint="@color/light_green" />
+
+    <ImageView
+        android:id="@+id/cat_fav"
+        android:layout_width="57dp"
+        android:layout_height="51dp"
+        android:padding="12dp"
+        android:src="@drawable/favorite_unfilled"
+        app:layout_constraintBottom_toBottomOf="@id/cat_home"
+        app:layout_constraintEnd_toStartOf="@id/cat_filter"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/cat_home"
+        app:layout_constraintTop_toTopOf="@id/cat_home"
+        />
+
+    <ImageView
+        android:id="@+id/cat_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/cat_home"
+        app:layout_constraintEnd_toStartOf="@id/cat_cart"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/cat_fav"
+        app:layout_constraintTop_toTopOf="@id/cat_home"
+        />
+
+    <ImageView
+        android:id="@+id/cat_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:src="@drawable/ic_cart"
+        app:layout_constraintBottom_toBottomOf="@id/cat_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/cat_filter"
+        app:layout_constraintTop_toTopOf="@id/cat_home"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_food_items"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/bg_bottom_bar"
+        app:layout_constraintTop_toBottomOf="@id/cat_home"
+        app:spanCount="2"
+        tools:layout_editor_absoluteX="20dp"
+        tools:listitem="@layout/food_item" />
+
+    <View
+        android:id="@+id/bg_bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_green_pill_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="bottom_navbar"
+        tools:layout_editor_absoluteY="635dp" />
+
+    <TextView
+        android:id="@+id/tv_cart_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="3 Items"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bg_bottom_bar"
+        app:layout_constraintStart_toStartOf="@id/bg_bottom_bar"
+        app:layout_constraintTop_toTopOf="@id/bg_bottom_bar" />
+
+    <TextView
+        android:id="@+id/tv_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="₦ 14200.00"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bg_bottom_bar"
+        app:layout_constraintEnd_toEndOf="@id/bg_bottom_bar"
+        app:layout_constraintTop_toTopOf="@id/bg_bottom_bar" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:menu="@menu/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

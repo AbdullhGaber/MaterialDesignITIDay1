@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+    android:id="@+id/welcomeFragment"
+    android:name="com.example.navgraphapp.UI.fragments.WelcomeFragment"
+    android:label="Welcome"
+    tools:layout="@layout/fragment_welcome" />
+
+    <fragment
+        android:id="@+id/mealsFragment"
+        android:name="com.example.navgraphapp.UI.fragments.MealsFragment"
+        android:label="Meals"
+        tools:layout="@layout/fragment_meals">
+        <action
+            android:id="@+id/action_mealsFragment_to_mealDetailsFragment"
+            app:destination="@id/mealDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mealDetailsFragment"
+        android:name="com.example.navgraphapp.UI.fragments.MealDetailsFragment"
+        android:label="Meal Details"
+        tools:layout="@layout/fragment_meal_details">
+        <argument
+            android:name="meal"
+            app:argType="com.example.navgraphapp.model.Meal" />
+    </fragment>
+</navigation>
